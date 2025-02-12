@@ -21,7 +21,7 @@ function getHumanChoice() {
     alert("Invalid choice! Please enter Rock, Paper, or Scissors.");
     return getHumanChoice();
   } else {
-    return humanChoice[0].toUpperCase() + humanChoice.subsrting(1);
+    return humanChoice[0].toUpperCase() + humanChoice.substring(1);
   }
 }
 
@@ -42,3 +42,23 @@ function playRound(humanChoice, computerChoice) {
 
   console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
+
+function playGame() {
+  for (i = 0; i < 5; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+  }
+
+  console.log("Game Over!");
+  if (humanScore === computerScore) {
+    console.log(`It's a tie! That was a close one, both played well.`);
+  } else if (humanScore > computerScore) {
+    console.log(`You did it! Congrats, you're the winner!`);
+  } else {
+    console.log(`You lost this time. Don’t worry, you’ll get 'em next time!`);
+  }
+}
+
+playGame();
